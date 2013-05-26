@@ -1,0 +1,18 @@
+---
+layout: post
+title: Tools for creating iOS prototypes and demos
+tags:
+- iOS development
+status: draft
+type: post
+published: false
+meta:
+  _edit_last: '1'
+---
+I'm doing a contract job and have had to make use of some hacks and tools that otherwise I would probably not have used doing regular development. From switching the carrier name on the status bar to simulating desktop transitions, much of these wouldn't be allowed in a real app but are perfectly ok for a demo or prototype!
+
+<strong>Switching the carrier name:</strong> If you ever need to hide the AT&amp;T/Verizon/cellular carrier name, <a href="https://gist.github.com/guidosabatini/4066796">add this .m file</a> to your project. You don't need to do anything else, including this in your project will automatically change the carrier name. Edit the file to change it to whatever you want, the defaults are iOS5 and iOS6. Exclude the #if TARGET_IPHONE_SIMULATOR and #endif at the bottom to get it run that way on the device as well. Do notice that if you do any app switching or go to the home screen, it'll show the original carrier. Alternatively, you can remove the sim card and have it say No SIM if you don't need cellular service.
+
+<strong>Resetting the app after each launch:</strong> Dealing with changing application states is time consuming and with a demo you usually need to or can reset to the beginning after every launch. In one of my apps, I needed a CABasicAnimation to run every time the view was run but if I switched between app states, simply having the animation in my in my viewDidAppear wasn't enough, I'd have to also set an app state notification or implement a function that runs in the appDelegate. To get around having to do that, just add to your in app-info.plist a new key <em>UIApplicationExitsOnSuspend</em> and set it to <em>YES</em>. It also shows up as "Application does not run in background." Now whenever you switch back to the app from another, it should run as if it was newly launched instead of from a suspended or inactive state.
+
+&nbsp;
