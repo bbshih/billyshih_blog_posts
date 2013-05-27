@@ -9,7 +9,7 @@ tags:
 - Compass
 ---
 
-For [Code Fellows](http://codefellows.org) we had to do a lightning talk on a topic of our choice. Since Rails utilizes Sass and my CSS skills have always been more of a learn on demand thing rather than a deep dive, I decided to check Sass out. While doing so, Compass came up often, so I added a little bit of my presentation to it.
+For [Code Fellows](http://codefellows.org) we had to do a lightning talk on a topic of our choice. Since Rails utilizes Sass and my CSS skills have always been more of a learn on demand thing rather than a deep dive, I decided to check Sass out. While doing so, Compass came up often, so I added a little bit of it to my presentation.
 
 Below are my slides, notes and links so you can play around with Sass. It's pretty easy to digest but there's a lot of depth I didn't cover and need to continue learning myself. Enjoy!
 
