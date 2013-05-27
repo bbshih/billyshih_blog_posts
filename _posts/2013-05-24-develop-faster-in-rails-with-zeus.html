@@ -12,15 +12,15 @@ type: post
 published: true
 alias: [/develop-faster-in-rails-with-zeus]
 ---
-Waiting is my least favorite part of developing. In Rails, every time you run a test or a rake command, even if it's just a few seconds, it's seconds that stop your flow.
+<p>Waiting is my least favorite part of developing. In Rails, every time you run a test or a rake command, even if it's just a few seconds, it's seconds that stop your flow.<p>
 
-<a href="https://github.com/burke/zeus">Zeus</a> is a gem that is out to solve that problem. It preloads the Rails app so that when you run commands it doesn't have to boot up Rails and so shaves time off of your commands. Like this:
+<p><a href="https://github.com/burke/zeus">Zeus</a> is a gem that is out to solve that problem. It preloads the Rails app so that when you run commands it doesn't have to boot up Rails and so shaves time off of your commands. Like this:</p>
 
-<a href="http://www.billyshih.com/images/2013/05/Screenshot-of-iTerm1.png"><img alt="Zeus speed comparison" src="http://www.billyshih.com/images/2013/05/Screenshot-of-iTerm1.png" width="524" height="69" /></a>
+<p><a href="http://www.billyshih.com/images/2013/05/Screenshot-of-iTerm1.png"><img alt="Zeus speed comparison" src="http://www.billyshih.com/images/2013/05/Screenshot-of-iTerm1.png" width="524" height="69" /></a></p>
 
-Here are the supported zeus commands.  It makes running all of these faster:
+<p>Here are the supported zeus commands.  It makes running all of these faster:</p>
 
-zeus console
+<pre>zeus console
 zeus server
 zeus test (works for rspec too)
 zeus cucumber
@@ -28,9 +28,9 @@ zeus dbconsole
 zeus generate
 zeus destroy
 zeus rake
-zeus runner
+zeus runner</pre>
 
-Instead of running rails server, you run zeus server and instead of bin/rspec you run zeus rspec, etc.
+<p>Instead of running rails server, you run zeus server and instead of bin/rspec you run zeus rspec, etc.</p>
 <h2>Installation</h2>
 Zeus requires:
 <ul>
@@ -38,11 +38,10 @@ Zeus requires:
 	<li>Rails 3.x</li>
 	<li>Ruby 1.9.3+</li>
 	<li>Recommended: Use with backported GC from Ruby 2.0
-<ul>
-	<li><a href="https://gist.github.com/1688857">rbenv</a></li>
-	<li><a href="https://gist.github.com/4136373">rvm</a></li>
-</ul>
-</li>
+  <ul>
+  	<li><a href="https://gist.github.com/1688857">rbenv</a></li>
+  	<li><a href="https://gist.github.com/4136373">rvm</a></li>
+  </ul>
 </ul>
 <span style="font-size: 16px;">I ended up using this command to get the rvm patch working:
 </span>
@@ -51,37 +50,38 @@ To install zeus, simply:
 <pre> gem install zeus</pre>
 Now go to your Rails app's directory and do:
 <pre>start zeus</pre>
-Zeus will show that it's running and show green statuses when its done loading.
-<a href="http://www.billyshih.com/images/2013/05/Screenshot-of-iTerm.png"><img class="alignnone size-full wp-image-182" alt="Zeus start console" src="http://www.billyshih.com/images/2013/05/Screenshot-of-iTerm.png" width="360" height="358" /></a>
+<p>Zeus will show that it's running and show green statuses when its done loading.<br>
+<a href="http://www.billyshih.com/images/2013/05/Screenshot-of-iTerm.png"><img class="alignnone size-full wp-image-182" alt="Zeus start console" src="http://www.billyshih.com/images/2013/05/Screenshot-of-iTerm.png" width="360" height="358" /></a></p>
 
-After that, simply run the zeus commands listed above!
+<p>After that, simply run the zeus commands listed above!</p>
 
-Zeus creates a .zeus.sock file you should add to your .gitignore_global file so that you don't commit it.
+<p>Zeus creates a .zeus.sock file you should add to your .gitignore_global file so that you don't commit it.</p>
+
 <h2>Fixes</h2>
-So I ran into a few problems using Zeus, many of which were documented in the GitHub repo. Here are the fixes I used:
+<p>So I ran into a few problems using Zeus, many of which were documented in the GitHub repo. Here are the fixes I used:</p>
 
-Remove any of the following in 'spec/spec_helper.rb' to solve rspec issues, especially if rspec is running twice or getting undefined methods in testing:
+Remove the require statements below in 'spec/spec_helper.rb' to solve problems with RSpec. RSpec was running twice or getting undefined methods when I ran tests, but this fixed it. (Source <a href="https://github.com/burke/zeus/issues/134">1</a>, <a href="https://github.com/burke/zeus/issues/180">2</a>)
 <pre> - require 'rspec/autotest'
  - require 'rspec/autorun'</pre>
-(Sources: <a href="https://github.com/burke/zeus/issues/134">https://github.com/burke/zeus/issues/134</a>, <a href="https://github.com/burke/zeus/issues/180">https://github.com/burke/zeus/issues/180</a>)
 
-If you have problems with the "zeus rake" command, try "zeus rspec spec". I had to do this to fix an "Uninitialized constant FactoryGirl" error. (<a href="https://github.com/burke/zeus/issues/226">Source</a>)
+<p>If you have problems with the "zeus rake" command, try "zeus rspec spec". I had to do this to fix an "Uninitialized constant FactoryGirl" error. (<a href="https://github.com/burke/zeus/issues/226">Source</a>)</p>
 
-Zeus is can be picky about the order of your gems in the gemfile, try reorganizing it or even adding it to your gemfile (although that will slow it down).
+<p>Zeus is can be picky about the order of your gems in the gemfile, try reorganizing it or even adding it to your gemfile (although that will slow it down).</p>
 
-Lastly, if you see things behaving incorrectly, try restarting zeus by using ctrl+c to stop it in the terminal you're running zeus and then running "zeus start" again.
+<p>Lastly, if you see things behaving incorrectly, try restarting zeus by using ctrl+c to stop it in the terminal you're running zeus and then running "zeus start" again.</p>
+
 <h2>Adding onto Zeus</h2>
-If you use Sublime Text 2, utilize it with <a href="https://github.com/maltize/sublime-text-2-ruby-tests">Sublime Text 2 Ruby Tests</a>, which allows you to run tests inside of Sublime Text. Install it via the Package Manager or the <a href="https://github.com/maltize/sublime-text-2-ruby-tests">GitHub repo</a>. Then customize it to use Zeus by finding the RubyTest.sublime-settings file inside of the RubyTest package directory and copy it. Place the copy in the package User directory. Open the copied file and replace the "run_cucumber_command" and "run_rspec_command" settings with this:
+<p>If you use Sublime Text 2, utilize it with <a href="https://github.com/maltize/sublime-text-2-ruby-tests">Sublime Text 2 Ruby Tests</a>, which allows you to run tests inside of Sublime Text. Install it via the Package Manager or the <a href="https://github.com/maltize/sublime-text-2-ruby-tests">GitHub repo</a>. Then customize it to use Zeus by finding the RubyTest.sublime-settings file inside of the RubyTest package directory and copy it. Place the copy in the package User directory. Open the copied file and replace the "run_cucumber_command" and "run_rspec_command" settings with this:</p>
 <pre> "run_cucumber_command": "zeus cucumber {relative_path} --no-color",
  "run_single_cucumber_command": "zeus cucumber {relative_path}:{line_number} --no-color",</pre>
 <pre>"run_rspec_command": "zeus rspec {relative_path}",
  "run_single_rspec_command": "zeus rspec {relative_path}:{line_number}",</pre>
-Andy Wait shows how he uses <a href="http://blog.andywaite.com/2012/12/05/zeus-cucumber-guard/">Zeus with Guard</a> to autorun tests.
+<p>Andy Wait shows how he uses <a href="http://blog.andywaite.com/2012/12/05/zeus-cucumber-guard/">Zeus with Guard</a> to autorun tests.</p>
 
-Thoughtbot sets up <a href="http://robots.thoughtbot.com/post/40193452558/improving-rails-boot-time-with-zeus">Zeus with some customizations</a>.
+<p>Thoughtbot sets up <a href="http://robots.thoughtbot.com/post/40193452558/improving-rails-boot-time-with-zeus">Zeus with some customizations</a>.</p>
 
-The <a href="https://github.com/sevos/zeus-parallel_tests">Zeus-Parallel Tests gem</a> combines Zeus and another gem to allow running tests in parallel.
+<p>The <a href="https://github.com/sevos/zeus-parallel_tests">Zeus-Parallel Tests gem</a> combines Zeus and another gem to allow running tests in parallel.</p>
 
-There's a great <a href="http://railscasts.com/episodes/412-fast-rails-commands">Railscast that goes over the Zeus installation</a> as I did above and also covers alternatives called <a href="https://github.com/jonleighton/spring">Spring</a> and <a href="https://github.com/rails/commands">Command</a>. If you like Zeus or have problems with it, check those out too. Spring looks pretty great and doesn't require starting up separately, so I might do another post on it.
+<p>There's a great <a href="http://railscasts.com/episodes/412-fast-rails-commands">Railscast that goes over the Zeus installation</a> as I did above and also covers alternatives called <a href="https://github.com/jonleighton/spring">Spring</a> and <a href="https://github.com/rails/commands">Command</a>. If you like Zeus or have problems with it, check those out too. Spring looks pretty great and doesn't require starting up separately, so I might do another post on it.</p>
 
-Let me know your experience with Zeus and if there are any other speedy gems out there by <a href="http://twitter.com/tobillys">tweeting me</a> or commenting here.
+<p>Let me know your experience with Zeus and if there are any other speedy gems out there by <a href="http://twitter.com/tobillys">tweeting me</a> or <a href="mailto:me@billyshih.com">email me</a>.</p>
