@@ -59,7 +59,7 @@ In your project directory run:
     $ bundle
     $ bundle exec compass init
 
-Rename your application.css to application.css.scss to change it into a Sass file. Then add the import below to the file:
+Rename your `application.css` to `application.css.scss` to change it into a Sass file. Then add the import below to the file:
 
     @import "compass"
 
@@ -73,9 +73,7 @@ Once your ready to push for production use:
 
 **Variables**
 
-- Create a variable by using $name and assign value with a :.
-
-        $highlight: #ff0000;
+- Create a variable by using $name and assign value with a `$highlight: #ff0000;`
 
 - Supports 4 data types: numbers (and units), strings, colors and booleans
 
@@ -86,7 +84,7 @@ Place child styles within a parent for better organization and readability
 **Mixins**
 
  - A selection of code that contains any valid Sass code. Whenever the mixin is called, it is inserted into the location
- - Define by using @mixin nameOfMixIn {} and then calling @include nameOfMixIn
+ - Define by using `@mixin nameOfMixIn {}` and then calling `@include nameOfMixIn`
  - You can give a mixin an argument to customize the mixin code:
 
         #mixin highlightBox($border_width) {
@@ -101,5 +99,4 @@ Place child styles within a parent for better organization and readability
 
 **Selector inheritance**
 
-Use CSS of another selector by using:
-    @extend selectorName
+Use CSS of another selector by using `@extend selectorName`
