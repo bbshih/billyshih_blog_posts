@@ -9,11 +9,14 @@ tags:
 - Compass
 ---
 
-For [Code Fellows](codefellows.org) we had to do a lightning talk on a topic of our choice. Since Rails utilizes Sass and my CSS skills have always been more of a learn on demand thing rather than a deep dive, I decided to check Sass out. While doing so, Compass came up often, so I added a little bit of my presentation to it.
+For [Code Fellows](http://codefellows.org) we had to do a lightning talk on a topic of our choice. Since Rails utilizes Sass and my CSS skills have always been more of a learn on demand thing rather than a deep dive, I decided to check Sass out. While doing so, Compass came up often, so I added a little bit of my presentation to it.
 
 Below are my slides, notes and links so you can play around with Sass. It's pretty easy to digest but there's a lot of depth I didn't cover and need to continue learning myself. Enjoy!
 
 ---
+
+## Slides
+<iframe src="http://www.slideshare.net/slideshow/embed_code/21581469" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
 
 ## Compass and Sass examples
 Try it out by installing compass, cloning the repo and then opening the application.css.scss file.
