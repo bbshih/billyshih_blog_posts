@@ -53,6 +53,8 @@ Now go to your Rails app's directory and do:
 
 <p>After that, simply run the zeus commands listed above!</p>
 
+<p><strong>Note:</strong> Since RSpec support files and FactoryGirl factories are preloaded, Zeus will need to be restarted to utilize changes to those file types. To restart, <code>ctrl+c</code> to stop Zeus and then run <code>zeus start</code>.</p>
+
 <p>Zeus creates a .zeus.sock file you should add to your .gitignore_global file so that you don't commit it.</p>
 
 <h2>Fixes</h2>
