@@ -11,9 +11,9 @@ On reflection, I would do some things differently, so here's a quick summary of 
 
 ## The Good
 
- - Met other front-end and back-end developers, designers
+ - Met other front-end and back-end developers and designers
  - Learned about non-business problems that technology can help solve
- - Contributed to helping the government and a volunteer to save cats!
+ - Contributed to helping to save cats!
  - Watched someone who really knows Ruby on Rails do some coding
  - Recognized that I have some practical problem solving skills that others lack
  - Finally went to a hackathon :)
@@ -21,13 +21,15 @@ On reflection, I would do some things differently, so here's a quick summary of 
 ## The Bad
 
  - Only talked to people within my group
- - Didn't get to code
+ - Didn't get to code because we had enough back and front-end developers and...
  - Our team got stuck with a technical issue that even the people who created the API we were using couldn't help us with
 
 ## Takeaways
  - Join a team that is lacking the skills you have
  - Take time to talk to others
- - Be more aggressive in seeking guidance from others around you or following along with others and learning
+ - Be more aggressive in seeking guidance from others around you 
+ - If someone has deep knowledge in something you want to know, ask to follow along but still try to be helpful
+ - Spend time thinking hard about what you want to do and what you want to accomplish beforehand, even if you change your mind at the event
 
 Overall, it was a fun event and I definitely will join another hackathon ASAP. I'm also planning to go to the [Seattle on Rails Practice meetup](http://www.meetup.com/The-Seattle-Ruby-on-Rails-Developers-Meetup-Group/events/120095582/) that one of my group members run. More networking and hacking to go along with my regular learning is definitely a big goal of mine, especially after how this event went.
 
